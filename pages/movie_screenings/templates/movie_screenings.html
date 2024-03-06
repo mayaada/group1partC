@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'movie_screenings' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('movie_screenings.static', filename='css/movie_screenings.css') }}"/>
+{% endblock %}
+
+
+
+{% block page_content %}
+
+    <div class="movie-screening-content">
+
+        <div class="movie-info">
+            <div class="movie-image">
+                <img src="https://i.ebayimg.com/images/g/O3MAAOSwiZ9k0HfD/s-l1200.webp">
+            </div>
+            <div class="movie-summary">
+                <h1 id="movie-name">Barbie</h1>
+                <div class="movie-info">
+                    <div class="movie-info-summary">
+                        <p>Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world
+                            of
+                            Barbie Land. However, when they get a chance to go to the real world, they soon discover the
+                            joys and perils of living among humans.
+                        </p>
+                    </div>
+                    <div class="general-info">
+                        <span>Comedy</span>
+                        <span>01:54</span>
+                        <span>English (Hebrew)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="movie-trailer">
+                <iframe width="420" height="250"
+                        src="https://www.youtube.com/embed/pBk4NYhWNMM">
+                </iframe>
+            </div>
+        </div>
+        <div class="movie-screenings">
+            <h1>Screenings:</h1>
+            <div class="screening-row">
+                <div>
+                    <span>Tel Aviv</span>
+                </div>
+                <div>
+                    <span>Lev Cinema</span>
+                </div>
+                <div>
+                    <span>18:30</span>
+                </div>
+                <div class="order-button">
+                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
+                </div>
+            </div>
+            <div class="screening-row">
+                <div>
+                    <span>Tel Aviv</span>
+                </div>
+                <div>
+                    <span>Lev Cinema</span>
+                </div>
+                <div>
+                    <span>21:00</span>
+                </div>
+                <div class="order-button">
+                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
+                </div>
+            </div>
+            <div class="screening-row">
+                <div>
+                    <span>Tel Aviv</span>
+                </div>
+                <div>
+                    <span>Yes Planet: Ayalon</span>
+                </div>
+                <div>
+                    <span>19:15</span>
+                </div>
+                <div class="order-button">
+                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
+                </div>
+            </div>
+            <div class="screening-row">
+                <div>
+                    <span>Tel Aviv</span>
+                </div>
+                <div>
+                    <span>Yes Planet: Ayalon</span>
+                </div>
+                <div>
+                    <span>21:45</span>
+                </div>
+                <div class="order-button">
+                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script defer src="{{ url_for('movie_screenings.static', filename='js/movie_screenings.js') }}"></script>
+
+{% endblock %}

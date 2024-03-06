@@ -27,19 +27,24 @@ Base page blocks:
 -- page_body_js
  #}
 <!DOCTYPE html>
- <html lang="{{ page_lang|default("en", true) }}">
-    <head>
-    {% block page_head %}
-        {# Title #}
-        <title>{{ page_head_title_author|default('Barak Pinchovski', true) }} | {{ page_head_title|default('Flask skeleton project', true) }}</title>
+<html lang="{{ page_lang|default("en", true) }}">
+<head>
 
+    {% block page_title %}
+        <title>base</title>
+    {% endblock %}
+
+    <title>{{ page_head_title }}</title>
+
+
+    {% block page_head %}
         {# Meta tags #}
         {% block page_head_meta %}
             <base href="/"/>
-            <meta charset="UTF-8"/>
-            <meta name="author" content="Barak Pinchovski"/>
-            <meta name="description" content="Flask skeleton project as a base to start developing on"/>
-            <meta name="keywords" content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education"/>
+            <meta charset="utf-8"/>
+            {% include 'navbar_style.html' %}
+            {% include 'footer_style.html' %}
+
             {% block page_head_meta_extra %}{% endblock %}
         {% endblock %}
 
@@ -53,52 +58,27 @@ Base page blocks:
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
         {% block page_head_css %}{% endblock %}
     {% endblock %}
-    </head>
-    <body>
-        {% block page_body_content %}
+</head>
+<body>
+{% block page_body %}
 
-            {# Header #}
-            {% block page_body_header %}
-                <header class="page-header">
-                    {% block page_body_header_content %}
+    {# navbar #}
+    {% block page_navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
 
-                        {# Main Menu #}
-                        {% block page_body_header_content__main_menu %}
-                            <nav class="main-menu">
-                                {% block page_body_header_content__main_menu_content %}
-                                    <ul>
-                                        {% block page_body_header_content__main_menu_content_links %}
-                                            {% include 'main_menu.html' %}
-                                        {% endblock %}
-                                    </ul>
-                                {% endblock %}
-                            </nav>
-                        {% endblock %}
+    {# content #}
+    {% block page_content %}
 
-                    {% endblock %}
-                </header>
-            {% endblock %}
+    {% endblock %}
 
-            {# Main #}
-            {% block page_body_main %}
-                <main class="page-main">
-                  {% block page_body_main_content %}
-                  {% endblock %}
-                </main>
-            {% endblock %}
+    {# footer #}
+    {% block page_footer %}
+        {% include 'footer.html' %}
+    {% endblock %}
 
-            {# Footer #}
-            {% block page_body_footer %}
-                <footer class="page-footer">
-                  {% block page_body_footer_content %}
-                  {% endblock %}
-                </footer>
-            {% endblock %}
+{% endblock %}
 
-        {% endblock %}
-
-        {# JS #}
-        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
-        {% block page_body_js %}{% endblock %}
-    </body>
+{# JS #}
+</body>
 </html>

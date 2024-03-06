@@ -5,7 +5,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.8 (ML_ENV)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
@@ -13,6 +13,14 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/pages/base/templates" />
+        <option value="$MODULE_DIR$/pages/home_page/templates" />
+        <option value="$MODULE_DIR$/pages/menu/templates" />
+        <option value="$MODULE_DIR$/pages/register/templates" />
+        <option value="$MODULE_DIR$/pages/my-account/templates" />
+        <option value="$MODULE_DIR$/pages/contact_us/templates" />
+        <option value="$MODULE_DIR$/pages/movie_screenings/templates" />
+        <option value="$MODULE_DIR$/pages/order_page/templates" />
       </list>
     </option>
   </component>

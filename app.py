@@ -6,37 +6,59 @@ app.config.from_pyfile('settings.py')
 
 ###### Pages
 ## Homepage
-from pages.homepage.homepage import homepage
+from pages.home_page.home_page import home_page
 
-app.register_blueprint(homepage)
+app.register_blueprint(home_page)
 
-## About
-from pages.about.about import about
 
-app.register_blueprint(about)
+## sign in
+from pages.sign_in.sign_in import sign_in
 
-## Profile
-from pages.profile.profile import profile
+app.register_blueprint(sign_in)
 
-app.register_blueprint(profile)
+## register
+from pages.register.register import register
 
-## Profile
-from pages.menu.menu import menu
+app.register_blueprint(register)
 
-app.register_blueprint(menu)
 
-## Catalog
-from pages.catalog.catalog import catalog
+## advanced_movie_search
+from pages.advanced_movie_search.advanced_movie_search import advanced_movie_search
 
-app.register_blueprint(catalog)
+app.register_blueprint(advanced_movie_search)
 
-## Page error handlers
-from pages.page_error_handlers.page_error_handlers import page_error_handlers
 
-app.register_blueprint(page_error_handlers)
+## contact_us
+from pages.contact_us.contact_us import contact_us
 
+app.register_blueprint(contact_us)
+
+
+## movie_screenings
+from pages.movie_screenings.movie_screenings import movie_screenings
+
+app.register_blueprint(movie_screenings)
+
+
+
+## order_page
+from pages.order_page.order_page import order_page
+
+app.register_blueprint(order_page)
+
+# ## Page error handlers
+# from pages.page_error_handlers.page_error_handlers import page_error_handlers
+#
+# app.register_blueprint(page_error_handlers)
+#
 ###### Components
-## Main menu
-from components.main_menu.main_menu import main_menu
+## Navar
+from components.navbar.navbar import navbar
 
-app.register_blueprint(main_menu)
+app.register_blueprint(navbar)
+
+
+## Footer
+from components.footer.footer import footer
+
+app.register_blueprint(footer)
