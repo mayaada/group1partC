@@ -1,0 +1,162 @@
+* {
+    font-family: Calibri, sans-serif;
+
+}
+
+/* ---------------NAVIGATION BAR-----------------*/
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    align-items: center;
+    background-color: #051929;
+    font-family: Calibri, sans-serif;
+    color: #ede4d5;
+    height: 80px;
+}
+
+.right-side-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sign-in {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Remove unnecessary semicolon */
+}
+
+.user-icon img {
+    height: 100%; /* Adjust to ensure consistent sizing */
+    width: 20px;
+    margin-right: 15px;
+    background-color: #051929;
+}
+
+.right-side-content a {
+    padding-right: 10px;
+    border-right: 1px solid #ede4d5;
+    margin-right: 15px;
+    text-decoration: underline;
+    color: #ede4d5;
+}
+
+.advanced-search {
+    background-color: #ede4d5;
+    border-radius: 5px;
+    font-weight: bolder;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.advanced-search a {
+    padding-right: 0;
+    border-right: 0;
+    margin-right: 0;
+    color: #051929;
+
+}
+
+
+.right-side-content a:hover {
+    color: #74BFB5;
+}
+
+
+.log-out-button {
+    padding: 0 10px;
+    border: 1px solid #ede4d5;
+    margin: 0 15px;
+    background-color: #051929;
+    color: white;
+    border-radius: 5px;
+}
+
+.logo {
+    margin-left: 40px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* ---------------NAVIGATION BAR-----------------*/
+
+/* ------------------FOOTER---------------------*/
+
+footer {
+    display: flex;
+    background-color: #051929;
+    font-family: Calibri, sans-serif;
+    color: #ede4d5;
+    font-weight: bolder;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 80px;
+
+}
+
+.left-side-footer {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+
+}
+
+footer a {
+    color: #ede4d5;
+    border-bottom: #ede4d5;
+}
+
+.contact-us {
+    padding: 10px;
+    text-decoration: underline;
+}
+
+.contact-us a:hover {
+    color: #74BFB5;
+}
+
+.terms {
+    padding: 10px;
+    border-left: 1px solid #ede4d5;
+    text-decoration: underline;
+
+}
+
+.terms a:hover {
+    color: #74BFB5;
+}
+
+
+.social-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.social-container img {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+
+#x-logo {
+    background-color: black;
+    border-radius: 10px;
+}
+
+/* ------------------FOOTER---------------------*/
