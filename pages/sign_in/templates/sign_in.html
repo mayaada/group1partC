@@ -1,19 +1,3 @@
-{#<!DOCTYPE html>#}
-{#<html>#}
-{#<head>#}
-{#    <meta charset="utf-8">#}
-{#    <link rel="stylesheet" href="../../../static/css/global-style-sheet.css"/>#}
-{#    <link rel="stylesheet" href="../../../static/css/style.css"/>#}
-{#    <link rel="stylesheet" href="../static/css/sign-in.css"/>#}
-{#    <script defer src="../../../static/js/db.js"></script>#}
-{#    <script defer src="../../../static/js/navbar.js"></script>#}
-{#    <script defer src="../static/js/sign-in.js"></script>#}
-{##}
-{#</head>#}
-{##}
-{#<body>#}
-
-
 {% extends 'base.html' %}
 
 {% set page_head_title = 'sign_in' %}
@@ -26,25 +10,19 @@
 {% block page_content %}
     <div class="sign-in-box-container">
         <div class="sign-in-box">
-            <form id="my-form" class="block">
+            <form id="my-form" class="block" method="post" action="/">
                 <h1> Sign In</h1>
                 <hr>
-                <label for="Email">Email:</label> <br>
-                <input type="text" id="Email" name="Email" required><br>
+                <label for="email">Email:</label> <br>
+                <input type="text" id="email" name="email" required><br>
                 <label for="password">Password:</label><br>
                 <input type="password" id="password" name="password" required><br>
                 <p>Don't have an account? Register<a href="../../register/templates/register.html"> here</a>.</p>
                 <div class="sign-in-button">
                     <input type="submit" value="Sign In">
-
                 </div>
-
-
             </form>
         </div>
 
     </div>
-
-    <script defer src="{{ url_for('sign_in.static', filename='js/sign-in.js') }}"></script>
-
 {% endblock %}
