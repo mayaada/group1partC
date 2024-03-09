@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import *
 
 ###### App setup
 app = Flask(__name__)
@@ -62,3 +62,14 @@ app.register_blueprint(navbar)
 from components.footer.footer import footer
 
 app.register_blueprint(footer)
+
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+uri = "mongodb+srv://tamaryos:Tyh0526309028@cluster0.y08h232.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+sample_analytics_db = client['sample_analytics']
+mydb = client['mydatabase']
+customers = mydb['customers']
