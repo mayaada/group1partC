@@ -1,5 +1,6 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request, session
 from flask import Blueprint
+from mongodb import *
 
 # about blueprint definition
 sign_in = Blueprint(
@@ -12,7 +13,7 @@ sign_in = Blueprint(
 
 
 # Routes
-@sign_in.route('/sign_in')
+@sign_in.route('/sign_in', methods=['GET', 'POST'])
 def index():
     return render_template('sign_in.html')
 
