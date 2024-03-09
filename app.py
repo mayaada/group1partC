@@ -1,5 +1,5 @@
 from flask import *
-
+from mongodb import *
 ###### App setup
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
@@ -46,11 +46,6 @@ from pages.order_page.order_page import order_page
 
 app.register_blueprint(order_page)
 
-# ## Page error handlers
-# from pages.page_error_handlers.page_error_handlers import page_error_handlers
-#
-# app.register_blueprint(page_error_handlers)
-#
 ###### Components
 ## Navar
 from components.navbar.navbar import navbar
@@ -69,7 +64,5 @@ from pymongo.server_api import ServerApi
 uri = "mongodb+srv://tamaryos:Tyh0526309028@cluster0.y08h232.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
-sample_analytics_db = client['sample_analytics']
-mydb = client['mydatabase']
-customers = mydb['customers']
+db = mongodb()
+print('after db')
