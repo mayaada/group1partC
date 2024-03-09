@@ -1,6 +1,4 @@
-from flask import request
-from flask import render_template, redirect, url_for
-from flask import Blueprint
+from flask import *
 
 # about blueprint definition
 home_page = Blueprint(
@@ -20,6 +18,9 @@ def index():
         password = request.form['password']
 
         print(email, password)
+
+    print("Email stored in session:", session.get('email'))  # Debugging statement
+
     return render_template('home_page.html')
 
 @home_page.route('/homepage', methods=['GET', 'POST'])
