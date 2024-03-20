@@ -45,18 +45,21 @@
                             <label for="movie">Choose Movie:</label>
                             <select id="movie" name="movie" required>
                                 <option value="">Choose...</option>
-                                <option value="Barbie">Barbie</option>
-                                <option value="Heart Of Stone">Heart Of Stone</option>
-                                <option value="Oppenheimer">Oppenheimer</option>
-                                <option value="The Little Mermaid">The Little Mermaid</option>
-                                <option value="Fast and Furious: X">Fast and Furious: X</option>
-                                <option value="Indiana Jones: Dial Of Destiny">Indiana Jones: Dial Of Destiny</option>
-                                <option value="The Mother">The Mother</option>
-                                <option value="Fair Play">Fair Play</option>
-                                <option value="Murder Mystery 2">Murder Mystery 2</option>
-                                <option value="Pain Hustlers">Pain Hustlers</option>
-                                <option value="The Out-Laws">The Out-Laws</option>
-                                <option value="Locked In">Locked In</option>
+                                {% for movie_name in movie_names %}
+                                    <option value="{{ movie_name }}">{{ movie_name }}</option>
+                                {% endfor %}
+                                {#                                <option value="Barbie">Barbie</option>#}
+                                {#                                <option value="Heart Of Stone">Heart Of Stone</option>#}
+                                {#                                <option value="Oppenheimer">Oppenheimer</option>#}
+                                {#                                <option value="The Little Mermaid">The Little Mermaid</option>#}
+                                {#                                <option value="Fast and Furious: X">Fast and Furious: X</option>#}
+                                {#                                <option value="Indiana Jones: Dial Of Destiny">Indiana Jones: Dial Of Destiny</option>#}
+                                {#                                <option value="The Mother">The Mother</option>#}
+                                {#                                <option value="Fair Play">Fair Play</option>#}
+                                {#                                <option value="Murder Mystery 2">Murder Mystery 2</option>#}
+                                {#                                <option value="Pain Hustlers">Pain Hustlers</option>#}
+                                {#                                <option value="The Out-Laws">The Out-Laws</option>#}
+                                {#                                <option value="Locked In">Locked In</option>#}
 
                             </select>
                         </div>
@@ -64,13 +67,16 @@
                             <label for="city">Choose a City:</label>
                             <select id="city" name="city" required>
                                 <option value="">Choose...</option>
-                                <option value="Tel Aviv">Tel Aviv</option>
-                                <option value="Be'er Sheva">Be'er Sheva</option>
-                                <option value="Haifa">Haifa</option>
-                                <option value="Ashdod">Ashdod</option>
-                                <option value="Rishon Letzion">Rishon Letzion</option>
-                                <option value="Hadera">Hadera</option>
-                                <option value="Qiryat Shmona">Qiryat Shmona</option>
+                                {% for city in cities %}
+                                    <option value="{{ city }}">{{ city }}</option>
+                                {% endfor %}
+                                {#                                <option value="Tel Aviv">Tel Aviv</option>#}
+                                {#                                <option value="Be'er Sheva">Be'er Sheva</option>#}
+                                {#                                <option value="Haifa">Haifa</option>#}
+                                {#                                <option value="Ashdod">Ashdod</option>#}
+                                {#                                <option value="Rishon Letzion">Rishon Letzion</option>#}
+                                {#                                <option value="Hadera">Hadera</option>#}
+                                {#                                <option value="Qiryat Shmona">Qiryat Shmona</option>#}
                             </select>
                         </div>
                         <div class="input-block">
