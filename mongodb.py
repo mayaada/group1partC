@@ -9,7 +9,7 @@ from app import *
 uri = "mongodb+srv://tamaryos:Tyh0526309028@cluster0.y08h232.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 
-class mongodb:
+class MongoDB:
     def __init__(self):
         self.theatres_list = None
         self.screenings_list = None
@@ -236,4 +236,30 @@ class mongodb:
         def search_movie(self, date, movie_name, city, start_time, end_time):
             return self.movies.find_one({''})
 
-        # create db
+    # Function to retrieve m    ovies from MongoDB
+    def get_movies(self):
+        movies_collection = self.client['movies']  # Replace with your actual collection name for movies
+        movie_names = [movie['movie_name'] for movie in movies_collection.find({}, {'_id': 0, 'movie_name': 1})]  # get movies for dropdown list
+        return movie_names
+
+    # Function to retrieve cities from MongoDB
+    def get_cities(self):
+        cities_collection = db['cities']  # Replace with your actual collection name for cities
+        cities = [city['name'] for city in cities_collection.find({}, {'_id': 0, 'cities': 1})]  # Retrieve only city names
+        return cities
+
+    def search_movies(self, date, movie_name, city, start_time, end_time):
+        pipeline = [
+            {"$match": {
+                "date": date,
+                "movie_name": movie_name,
+                "city": city,
+                "start_time": {"$gte": start_time},
+                "end_time": {"$lte": end_time}
+            }}
+        ]
+
+        # Execute the aggregation pipeline and retrieve available screenings
+        available_screenings = list(self.client.aggregate(pipeline))
+        return available_screenings
+
