@@ -1,6 +1,5 @@
-from flask import render_template, redirect, url_for
-from flask import Blueprint
-
+from flask import *
+from database import *
 # about blueprint definition
 register = Blueprint(
     'register',
@@ -12,6 +11,15 @@ register = Blueprint(
 
 
 # Routes
-@register.route('/register')
+@register.route('/register' , methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        email = request.form.get('Email')
+        password = request.form.get('password')
+        if checkUser(email, password):
+            session['email'] = email
+            session.modified = True
+            return redirect(url_for('home_page.index'))
+        else:
+            flash('user already exists')
     return render_template('register.html')

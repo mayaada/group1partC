@@ -42,3 +42,15 @@ for doc in users.find():
         if user['password'] != password:
             return False
         return True
+
+    #check if the user exists
+    def checkUser(email , password):
+        print("checkUser")
+        user = users.find_one({'email': email})
+        print("Retrieved user:", user)  # Debugging output
+        if user is None:
+            print("user is None")
+            users.insert_one({'email': email, 'password': password})
+            return True
+        return False
+

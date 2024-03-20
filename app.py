@@ -61,8 +61,3 @@ app.register_blueprint(footer)
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-uri = "mongodb+srv://tamaryos:Tyh0526309028@cluster0.y08h232.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-# create a new client and connect to the server
-db = mongodb()
-print('after db')
