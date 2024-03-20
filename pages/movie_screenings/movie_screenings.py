@@ -1,5 +1,4 @@
-from flask import render_template, redirect, url_for
-from flask import Blueprint
+from flask import *
 
 # about blueprint definition
 movie_screenings = Blueprint(
@@ -12,6 +11,9 @@ movie_screenings = Blueprint(
 
 
 # Routes
-@movie_screenings.route('/movie_screenings')
+@movie_screenings.route('/movie_screenings' , methods=['GET', 'POST'])
 def index():
+    if request.method == 'GET':
+
+        return render_template('movie_screenings.html')
     return render_template('movie_screenings.html')

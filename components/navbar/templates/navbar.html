@@ -12,6 +12,7 @@
                          alt="User Profile">
                 </div>
                 <span>{{ session['email'] }}</span>
+                <a href="{{ url_for('navbar.logout') }}" id="sign-in">Log Out </a>
             </div>
         {% else %}
             <div class="sign-in">

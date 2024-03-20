@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
 
-{% set page_head_title = 'sign_in' %}
+{% set page_head_title = 'Sign In' %}
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('sign_in.static', filename='css/sign-in.css') }}"/>
 {% endblock %}
 
-
 {% block page_content %}
     <div class="sign-in-box-container">
         <div class="sign-in-box">
-            <form id="my-form" class="block" method="post" action="/sign_in">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form id="my-form" class="block" method="post" action="{{ url_for('sign_in.index') }}">
                 <h1> Sign In</h1>
                 <hr>
                 <label for="email">Email:</label> <br>
@@ -23,6 +34,5 @@
                 </div>
             </form>
         </div>
-
     </div>
 {% endblock %}

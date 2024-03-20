@@ -1,5 +1,5 @@
 from flask import *
-from mongodb import *
+from mongo_db import *
 ###### App setup
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')

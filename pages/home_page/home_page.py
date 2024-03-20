@@ -1,4 +1,5 @@
 from flask import *
+from database import *
 
 # about blueprint definition
 home_page = Blueprint(
@@ -13,18 +14,14 @@ home_page = Blueprint(
 # Routes
 @home_page.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+    movies_col = movies.find({'name': {'$exists': True}}).sort('name', pymongo.ASCENDING)
+    movie_names = [movie['name'] for movie in movies_col]
+    cities_col = cities.find({'city': {'$exists': True}}).sort('city', pymongo.ASCENDING)
+    city_names = [city['city'] for city in cities_col]
+    return render_template('home_page.html', movies=movie_names , cities=city_names)
 
-        print(email, password)
-
-    print("Email stored in session:", session.get('email'))  # Debugging statement
-
-    return render_template('home_page.html')
 
 @home_page.route('/homepage', methods=['GET', 'POST'])
 @home_page.route('/home', methods=['GET', 'POST'])
 def redirect_homepage():
     return redirect(url_for('home_page.index'))
-
