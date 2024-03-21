@@ -1,5 +1,6 @@
 from flask import render_template, redirect, url_for
 from flask import Blueprint
+from database import *
 
 # about blueprint definition
 order_page = Blueprint(
@@ -12,6 +13,7 @@ order_page = Blueprint(
 
 
 # Routes
-@order_page.route('/order_page')
-def index():
-    return render_template('order_page.html')
+@order_page.route('/order_page/<movie_name>/<date>/<theatre>/<time>')
+def index(movie_name, date, theatre, time):
+
+    return render_template('order_page.html', movie_name=movie_name, date=date, theatre=theatre, time=time)

@@ -30,9 +30,7 @@ Base page blocks:
 <html lang="{{ page_lang|default("en", true) }}">
 <head>
 
-    {% block page_title %}
-        <title>base</title>
-    {% endblock %}
+    <title>{% block page_title %}base{% endblock %}</title>
 
     <title>{{ page_head_title }}</title>
 
