@@ -9,6 +9,8 @@
     font-family: Calibri, sans-serif;
     color: #ede4d5;
     height: 80px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Adding shadow */
+
 }
 
 .right-side-content {
@@ -80,4 +82,18 @@
 
 .logo img {
     height: 50px;
+}
+.user-info {
+    margin:  10px;
+    justify-content: end;
+    display: flex;
+
+}
+user-email{
+    padding: 0 10px;
+    border: 1px solid #051929;
+    margin: 15px;
+    background-color: #ede4d5;
+    color: white;
+    border-radius: 5px;
 }

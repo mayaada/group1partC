@@ -13,6 +13,8 @@
 .most-watched {
     padding: 30px 40px;
     width: 100%;
+    border-radius: 15px;
+
 }
 
 .movie-previews {
@@ -22,6 +24,8 @@
     margin-top: 10px;
     background-color: #ede4d5;
     padding: 20px;
+    border-radius: 15px;
+
 }
 
 
@@ -44,7 +48,7 @@
     font-family: Calibri, sans-serif;
     font-weight: bolder;
     font-size: 26px;
-    color: #D13A00;
+    color: #051929;
     border-bottom: 3px solid #D89747;
     padding-bottom: 5px;
 }
@@ -60,7 +64,7 @@
     font-family: Calibri, sans-serif;
     font-weight: bolder;
     font-size: 26px;
-    color: #D13A00;
+    color: #051929;
     border-bottom: 3px solid #D89747;
     padding-bottom: 5px;
 }
@@ -69,6 +73,8 @@
     display: flex;
     flex-direction: column;
     /*flex-grow: 1;*/
+    border-radius: 15px;
+
 }
 
 .search-form {
@@ -82,6 +88,8 @@
     justify-content: space-around;
     /*flex-grow: 1;*/
     margin-top: 15px;
+    border-radius: 15px;
+
 
 }
 
@@ -91,6 +99,7 @@
     justify-content: space-evenly;
     margin-top: 10px;
     padding: 20px;
+    border-radius: 15px;
 }
 
 .input-block {
@@ -121,4 +130,3 @@
 }
 
 /* -------------------HOME PAGE-----------------*/
-

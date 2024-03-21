@@ -11,8 +11,11 @@
                     <img src="https://riversideartsmarket.org/wp-content/uploads/2018/10/profile.png"
                          alt="User Profile">
                 </div>
+
+                <div class="user-email">
                 <span>{{ session['email'] }}</span>
                 <a href="{{ url_for('navbar.logout') }}" id="sign-in">Log Out </a>
+                </div>
             </div>
         {% else %}
             <div class="sign-in">

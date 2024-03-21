@@ -12,11 +12,28 @@ footer {
     height: 80px;
 
 }
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 80px;
+    background-color: #051929;
+    font-family: Calibri, sans-serif;
+    color: #ede4d5;
+    font-weight: bolder;
+    width: 100%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Adding shadow */
+
+}
 
 .left-side-footer {
     display: flex;
     flex-direction: row;
     width: 60%;
+    align-items: center;
+    justify-content: start;
 
 }
 
@@ -51,6 +68,7 @@ footer a {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: END;
 }
 
 .social-container img {
