@@ -14,91 +14,87 @@
 
         <div class="movie-info">
             <div class="movie-image">
-                <img src="https://i.ebayimg.com/images/g/O3MAAOSwiZ9k0HfD/s-l1200.webp">
+                {% if movie_name == "Barbie" %}
+                    <img src="https://i.ebayimg.com/images/g/O3MAAOSwiZ9k0HfD/s-l1200.webp">
+                {% elif movie_name == "Fast X" %}
+                    <img src="https://m.media-amazon.com/images/M/MV5BNzZmOTU1ZTEtYzVhNi00NzQxLWI5ZjAtNWNhNjEwY2E3YmZjXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg">
+                {% elif movie_name == "Heart of Stone" %}
+                    <img src="https://netnaija.ng/wp-content/uploads/2023/08/WAPK4B1la0B-1.webp">
+                {% elif movie_name == "Indiana Jones and the Dial of Destiny" %}
+                    <img src="https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_indianajonesdialofdestiny_1191-1_c7133638.jpeg">
+                {% elif movie_name == "Oppenheimer" %}
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg">
+                {% elif movie_name == "The Little Mermaid" %}
+                    <img src="https://images.disneymovieinsiders.com/45e302be324f9489547237e12b27362b/472ac44d-1e46-4cd3-b20b-f82211f8aed1.jpg">
+                {% endif %}
             </div>
             <div class="movie-summary">
-                <h1 id="movie-name">Barbie</h1>
+
+                <h1 id="movie-name">{{ movie_name }}</h1>
                 <div class="movie-info">
                     <div class="movie-info-summary">
-                        <p>Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world
-                            of
-                            Barbie Land. However, when they get a chance to go to the real world, they soon discover the
-                            joys and perils of living among humans.
-                        </p>
+                        <p>{{ description }}</p>
                     </div>
                     <div class="general-info">
-                        <span>Comedy</span>
-                        <span>01:54</span>
-                        <span>English (Hebrew)</span>
+                        <span>{{ genre }}</span>
+                        <span>{{ length }}</span>
+                        <span>{{ language }}</span>
                     </div>
                 </div>
             </div>
             <div class="movie-trailer">
-                <iframe width="420" height="250"
-                        src="https://www.youtube.com/embed/pBk4NYhWNMM">
-                </iframe>
+                {% if movie_name == "Barbie" %}
+                    <iframe width="420" height="250"
+                            src="https://www.youtube.com/embed/pBk4NYhWNMM"></iframe>
+                {% elif movie_name == "Fast X" %}
+                    <iframe width="420" height="250"
+                            src="https://www.youtube.com/embed/32RAq6JzY-w?si=zSnBhHlfZGGOJ6eF"></iframe>
+                {% elif movie_name == "Heart of Stone" %}
+                    <iframe width="420" height="250"
+                            src="https://www.youtube.com/embed/XuDwndGaCFo?si=M3Ohuttt0Z9Xc5Wm"></iframe>
+                {% elif movie_name == "Indiana Jones and the Dial of Destiny" %}
+                    <iframe width="420" height="250"
+                            src="https://www.youtube.com/embed/eQfMbSe7F2g?si=QKggPL9d9eTVS0oK"></iframe>
+                {% elif movie_name == "Oppenheimer" %}
+                    <iframe width="420" height="250"
+                            src="https://www.youtube.com/embed/uYPbbksJxIg?si=qAY5xTJA13fqWiZT"></iframe>
+                {% elif movie_name == "The Little Mermaid" %}
+                    <iframe width="420" height="250"
+                            src="https://www.youtube.com/embed/kpGo2_d3oYE?si=3Xmv_Ti9N4ZeinIV"></iframe>
+                {% endif %}
             </div>
         </div>
         <div class="movie-screenings">
             <h1>Screenings:</h1>
+            {% if results | length == 0 %}
+                <div class="screening-row">
+                    <div>
+                         <span>No screenings available</span>
+                    </div>
+                </div>
+            {% endif %}
+            {% for result in results %}
             <div class="screening-row">
                 <div>
-                    <span>Tel Aviv</span>
+                    <span>{{ result['city'] }}</span>
                 </div>
                 <div>
-                    <span>Lev Cinema</span>
+                    <span>{{ result['theatre'] }}</span>
                 </div>
                 <div>
-                    <span>18:30</span>
+                    <span>{{ result['date'] }}</span>
+                </div>
+                <div>
+                    <span>{{ result['time'] }}</span>
                 </div>
                 <div class="order-button">
-                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
+                    <a href="{{ url_for('order_page.index',movie_name=result['movie_name'],
+                            date=result['date'],
+                            theatre=result['theatre'],
+                            time=result['time'])}}" id="order_page">Order Ticket</a>
                 </div>
             </div>
-            <div class="screening-row">
-                <div>
-                    <span>Tel Aviv</span>
-                </div>
-                <div>
-                    <span>Lev Cinema</span>
-                </div>
-                <div>
-                    <span>21:00</span>
-                </div>
-                <div class="order-button">
-                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
-                </div>
-            </div>
-            <div class="screening-row">
-                <div>
-                    <span>Tel Aviv</span>
-                </div>
-                <div>
-                    <span>Yes Planet: Ayalon</span>
-                </div>
-                <div>
-                    <span>19:15</span>
-                </div>
-                <div class="order-button">
-                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
-                </div>
-            </div>
-            <div class="screening-row">
-                <div>
-                    <span>Tel Aviv</span>
-                </div>
-                <div>
-                    <span>Yes Planet: Ayalon</span>
-                </div>
-                <div>
-                    <span>21:45</span>
-                </div>
-                <div class="order-button">
-                    <a href="{{ url_for('order_page.index') }}" id="order_page">Order Ticket</a>
-                </div>
-            </div>
-
-
+            {% endfor %}
         </div>
     </div>
     <script defer src="{{ url_for('movie_screenings.static', filename='js/movie_screenings.js') }}"></script>
